@@ -40,7 +40,7 @@ while game_is_on:
 
     # Detect successful pass
     if player.ycor() > 285:
-        score.point()
+        score.increase_level()
         player.restart()
         car.make_fast()
 

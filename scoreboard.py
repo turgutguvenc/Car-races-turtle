@@ -1,6 +1,6 @@
 from turtle import Turtle
 
-ALINGMENT = "center"
+ALINGMENT = "left"
 FONT: tuple[str, int, str] = ('Arial', 20, 'normal')
 
 
@@ -9,7 +9,7 @@ class ScoreBoard(Turtle):
     This class represents the scoreboard in the game.
 
     Attributes:
-        score (int): Represents the player's score.
+        level (int): Represents the player's level.
 
     Methods:
         __init__(): Initializes a new instance of the ScoreBoard class.
@@ -26,7 +26,7 @@ class ScoreBoard(Turtle):
         self.color("white")
         self.penup()
         self.hideturtle()
-        self.score = 0
+        self.level = 1
         self.update_scoreboard()
 
     def update_scoreboard(self):
@@ -35,13 +35,13 @@ class ScoreBoard(Turtle):
         """
         self.clear()
         self.goto(x=-50, y=270)
-        self.write(align=ALINGMENT, arg=self.score, font=FONT)
+        self.write(align=ALINGMENT, arg=f"Level: {self.level}", font=FONT)
 
-    def point(self):
+    def increase_level(self):
         """
-        Increment the player's score by 1 and update the scoreboard.
+        Increment the player's level by 1 and update the scoreboard.
         """
-        self.score += 1
+        self.level += 1
         self.update_scoreboard()
 
     def game_over(self):
